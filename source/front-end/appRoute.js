@@ -6,7 +6,7 @@ angular.module("app") // 생성된 모듈 구성
         //     requireBase: true   //root를 어디로 볼 것인가 - <base href> 반드시 작성
         // });
 
-        //라우트 정의
+        //라우트 정의 - 같은 DOM 내부에서 이동할 때 사용
         $routeProvider
             .when("/", {templateUrl: "views/exam01_home.html"}) 
             .when("/exam02_module_create_find", {templateUrl: "views/exam02_module_create_find.html"}) 
@@ -21,5 +21,11 @@ angular.module("app") // 생성된 모듈 구성
             .when("/exam11_outside_to_scope", {templateUrl: "views/exam11_outside_to_scope.html", controller: "exam11Controller"})
             .when("/exam12_one_way_binding", {templateUrl: "views/exam12_one_way_binding.html", controller: "exam12Controller"})
             .when("/exam13_two_way_binding", {templateUrl: "views/exam13_two_way_binding.html", controller: "exam13Controller"})
+            .when("/exam14_ng-repeat", {templateUrl: "views/exam14_ng-repeat.html", controller: "exam14Controller"})
+            .when("/exam15_ng-include", {templateUrl: "views/exam15_ng-include/index.html", controller: "exam15Controller"})
+            .when("/exam16_ng-switch", {templateUrl: "views/exam16_ng-switch.html", controller: "exam16Controller"})
+            .when("/exam17_ng-show_ng-hide_ng-if", {templateUrl: "views/exam17_ng-show_ng-hide_ng-if.html", controller: "exam17Controller"})
+            .when("/exam18_ng-class_ng-style", {templateUrl: "views/exam18_ng-class_ng-style.html", controller: "exam18Controller"})
+            .when("/exam19_event_directive", {templateUrl: "views/exam19_event_directive.html", controller: "exam19Controller"})
             .otherwise({redirectTo: "/"});  //요청되지 않은 경로로 호출 될 경우 경로 지정
     }); 
