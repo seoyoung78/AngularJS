@@ -1,7 +1,8 @@
 angular.module("app", ["ngRoute", "exam03Module", "exam04Module"]) // 모듈 생성 - 이름 : app, 외부 모듈 사용 - 앵귤러 root 모듈(가장 처음 실행)
-    .config(function(counterSeviceByProviderProvider) {    // 모듈 마다 생성 가능
+    .config(function(counterSeviceByProviderProvider, $logProvider) {    // 모듈 마다 생성 가능
         console.log("app - config callback");
         counterSeviceByProviderProvider.setCount(100);
+        $logProvider.debugEnabled(false);
     })
     .run(function($rootScope) {   // 모듈 마다 생성 가능 - 전역 데이터
         console.log("app - run callback");

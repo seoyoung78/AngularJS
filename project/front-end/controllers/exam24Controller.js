@@ -1,5 +1,5 @@
 angular.module("app") 
-    .controller("exam24Controller", function($scope, $window, $document, $interval, $location, $routeParams) {
+    .controller("exam24Controller", function($scope, $window, $document, $interval, $location, $routeParams, $anchorScroll, $log) {
         $scope.openAlert = () => {
             $window.alert("알림 메시지...");
         };
@@ -33,7 +33,7 @@ angular.module("app")
         };
 
         $scope.changeUrl2 = (bno, pageNo) => {
-            const path = `/exam24_builtin_service/boards/${bno}?pageNo=${pageNo}#bottom`;  //#! 추가x
+            const path = `/exam24_builtin_service/boards/${bno}?pageNo=${pageNo}#bottom`;  //bottom으로 자동으로 이동
             $location.url(path);    //라우트에 경로 추가
         };
 
@@ -44,10 +44,27 @@ angular.module("app")
             console.log("$location.path():", $location.path());
             console.log("$location.search():", $location.search());
             console.log("$location.hash():", $location.hash());
+
             console.log("$routeParams():", $routeParams);
             const bno = $routeParams.bno;
             const pageNo = $routeParams.pageNo;
             console.log("bno: ", bno);
             console.log("pageNo: ", pageNo);
         });        
+
+        $scope.items = [];
+        for(var i = 0; i < 50; i++) {
+            $scope.items.push("Item " + i);
+        };
+
+        $scope.show = (id) => {
+            $anchorScroll(id);  //버튼을 이용하여 수동으로 이동
+        };
+
+        $scope.handlePrintLog = () => {
+            $log.error("yewon zzang Message");
+            $log.warn("warn Message");
+            $log.info("info Message");
+            $log.debug("debug Message");
+        }
     });
