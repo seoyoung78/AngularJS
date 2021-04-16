@@ -30,5 +30,11 @@ angular.module("app") // 생성된 모듈 구성
             .when("/exam20_boolean_href_src", {templateUrl: "views/exam20_boolean_href_src.html", controller: "exam20Controller"})
             .when("/exam21_form_validation", {templateUrl: "views/exam21_form_validation.html", controller: "exam21Controller"})
             .when("/exam22_filter", {templateUrl: "views/exam22_filter.html", controller: "exam22Controller"})
+            .when("/exam23_service_declaration", {templateUrl: "views/exam23_service_declaration.html", controller: "exam23Controller"})
+            
+            .when("/exam24_builtin_service", {templateUrl: "views/exam24_builtin_service/index.html", controller: "exam24Controller"})  //컨트롤러는 생성할 때마다 새로 생김, 공유x -> 상태 데이터를 넘겨서 사용 할 수 x -> rootscope에 저장 or mainController에 저장해서 사용
+            .when("/exam24_builtin_service/boards", {templateUrl: "views/exam24_builtin_service/boards.html", controller: "exam24Controller"})
+            .when("/exam24_builtin_service/boards/:bno", {templateUrl: "views/exam24_builtin_service/boards.html", controller: "exam24Controller"})     //bno: 경로 변수(path 변수)
+
             .otherwise({redirectTo: "/"});  //요청되지 않은 경로로 호출 될 경우 경로 지정
     }); 
